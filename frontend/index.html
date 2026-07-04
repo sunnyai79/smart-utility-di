@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Smart Utility Decision Intelligence</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js" defer></script>
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="hero card">
+        <div class="hero-copy">
+          <p class="eyebrow">AI Decision Intelligence Platform</p>
+          <h1>Smart Utility Decision Intelligence</h1>
+          <p class="subtitle">
+            Offline-first operational analytics for energy efficiency, smart utilities, anomaly response, and AI-guided decision support.
+          </p>
+        </div>
+        <div class="hero-meta">
+          <span class="badge" id="llm-badge">LLM: loading...</span>
+          <div class="meta-line" id="date-range">Loading data range...</div>
+        </div>
+      </header>
+
+      <section class="kpi-grid" id="kpi-grid"></section>
+
+      <section class="content-grid">
+        <article class="card chart-card span-2">
+          <div class="card-header">
+            <h2>Consumption over time</h2>
+            <span class="muted">Daily kWh and renewable kWh</span>
+          </div>
+          <div class="chart-wrap"><canvas id="consumption-time-chart"></canvas></div>
+        </article>
+
+        <article class="card chart-card">
+          <div class="card-header">
+            <h2>By sector</h2>
+            <span class="muted">Energy contribution</span>
+          </div>
+          <div class="chart-wrap"><canvas id="sector-chart"></canvas></div>
+        </article>
+
+        <article class="card chart-card">
+          <div class="card-header">
+            <h2>By zone</h2>
+            <span class="muted">Grid geography breakdown</span>
+          </div>
+          <div class="chart-wrap"><canvas id="zone-chart"></canvas></div>
+        </article>
+
+        <article class="card chart-card">
+          <div class="card-header">
+            <h2>Hourly load profile</h2>
+            <span class="muted">Average kWh by hour</span>
+          </div>
+          <div class="chart-wrap"><canvas id="load-profile-chart"></canvas></div>
+        </article>
+
+        <article class="card chart-card span-2">
+          <div class="card-header">
+            <div>
+              <h2>Forecast</h2>
+              <span class="muted">Next 7 days with uncertainty band</span>
+            </div>
+            <div class="forecast-metrics" id="forecast-metrics"></div>
+          </div>
+          <div class="chart-wrap"><canvas id="forecast-chart"></canvas></div>
+        </article>
+      </section>
+
+      <section class="two-col">
+        <article class="card panel-card">
+          <div class="card-header">
+            <h2>Anomalies</h2>
+            <span class="muted">Top 15 unusual readings</span>
+          </div>
+          <div class="table-wrap" id="anomalies-table"></div>
+        </article>
+
+        <article class="card panel-card">
+          <div class="card-header">
+            <h2>Recommendations</h2>
+            <span class="muted">Operational actions with estimated savings</span>
+          </div>
+          <div class="stack" id="recommendations-list"></div>
+        </article>
+      </section>
+
+      <section class="card ask-card">
+        <div class="card-header">
+          <h2>Ask AI</h2>
+          <span class="muted">Try a question about energy, peaks, anomalies, forecast, or savings</span>
+        </div>
+        <div class="chips" id="example-chips"></div>
+        <form id="ask-form" class="ask-form">
+          <input id="question-input" type="text" placeholder="Ask a question about your utility data..." autocomplete="off" />
+          <button type="submit" id="ask-button">Send</button>
+        </form>
+        <div id="ask-status" class="status"></div>
+        <div id="ask-answer" class="answer-box"></div>
+        <div class="ask-result-grid">
+          <div class="card inset-card">
+            <div class="card-header compact">
+              <h3>Answer chart</h3>
+              <span class="muted">Rendered when available</span>
+            </div>
+            <div class="chart-wrap small"><canvas id="ask-chart"></canvas></div>
+          </div>
+          <div class="card inset-card">
+            <div class="card-header compact">
+              <h3>Structured data</h3>
+              <span class="muted">Supporting metrics and tables</span>
+            </div>
+            <div id="ask-data" class="table-wrap"></div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
